@@ -16,7 +16,7 @@
                         host="localhost"
                         port="5672"
                         username="wj"
-                        password="123456"/>
+                        password="wj"/>
 
     <!--2、配置队列queue, Exchange, 以及将他们结合在一起的binding-->
     <!--在queue以及exchange中, 有一个重要的属性durable, 默认为true, 可以防止宕机后数据丢失。-->
