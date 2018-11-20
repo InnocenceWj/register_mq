@@ -11,6 +11,7 @@ import org.springframework.amqp.core.MessageListener;
  * @描述
  */
 public class MqMailListener implements MessageListener {
+
     @Override
     public void onMessage(Message message) {
         String messageBody = null;

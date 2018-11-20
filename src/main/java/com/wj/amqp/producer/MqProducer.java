@@ -14,4 +14,5 @@ public interface MqProducer {
      * @param str
      */
     void sendDataToQueue(String exchangeKey,String queueKey, String str) throws UnsupportedEncodingException;
+
 }

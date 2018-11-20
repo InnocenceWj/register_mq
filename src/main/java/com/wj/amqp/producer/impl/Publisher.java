@@ -36,4 +36,5 @@ public class Publisher implements MqProducer{
             throw new RabbitMqException(e.getMessage());
         }
     }
+
 }

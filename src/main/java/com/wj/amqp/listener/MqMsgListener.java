@@ -27,4 +27,5 @@ public class MqMsgListener implements MessageListener{
             e.printStackTrace();
         }
     }
+
 }
