@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="register_mq" />
+        <module name="register" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="register_mq" target="1.7" />
+      <module name="register" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>
