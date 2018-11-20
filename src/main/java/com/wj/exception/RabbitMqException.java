@@ -1,5 +1,7 @@
 package com.wj.exception;
 
+import com.wj.enums.RegisterEnum;
+
 /**
  * @创建人 wj
  * @创建时间 2018/11/2
@@ -7,11 +9,14 @@ package com.wj.exception;
  */
 public class RabbitMqException extends RuntimeException{
 
-    public RabbitMqException(String message) {
-        super(message);
+    private RegisterEnum registerEnum;
+
+    public RabbitMqException(RegisterEnum registerEnum) {
+        super(registerEnum.getStateInfo());
+        this.registerEnum = registerEnum;
     }
 
-    public RabbitMqException(String message, Throwable cause) {
-        super(message, cause);
+    public RegisterEnum getCodeMsg() {
+        return registerEnum;
     }
 }

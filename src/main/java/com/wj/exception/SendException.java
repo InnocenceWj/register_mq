@@ -1,5 +1,7 @@
 package com.wj.exception;
 
+import com.wj.enums.RegisterEnum;
+
 /**
  * @创建人 wj
  * @创建时间 2018/11/2
@@ -7,11 +9,10 @@ package com.wj.exception;
  */
 public class SendException extends RabbitMqException {
 
-    public SendException(String message) {
-        super(message);
-    }
+    private RegisterEnum registerEnum;
 
-    public SendException(String message, Throwable cause) {
-        super(message, cause);
+    public SendException(RegisterEnum registerEnum) {
+        super(registerEnum);
+        this.registerEnum = registerEnum;
     }
 }

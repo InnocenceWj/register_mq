@@ -5,18 +5,22 @@ package com.wj.enums;
  * @创建时间 2018/11/2
  * @描述
  */
-public enum RabbitMqEnum {
+public enum RegisterEnum{
 
-    SEND_SUCCESS(1, "发送成功"),
-    REVIEWCEIVE_SUCCESS(2, "接收成功"),
-    SEND_FAIL(-1, "发送失败"),
-    REVIEWCEIVE_FAIL(-2, "接收失败"),
-    MQ_ERROR(-3, "RabbitMq异常");
+    SEND_SUCCESS(101, "发送成功"),
+    REVIEWCEIVE_SUCCESS(102, "接收成功"),
+    SEND_FAIL(113, "发送失败"),
+    REVIEWCEIVE_FAIL(114, "接收失败"),
+    MQ_ERROR(115, "RabbitMq异常"),
+
+    BIND_ERROR(210,"参数校验异常：%s!"),
+
+    SERVER_ERROR(310, "系统异常");
 
     private int state;
     private String stateInfo;
 
-    RabbitMqEnum(int state, String stateInfo) {
+    RegisterEnum(int state, String stateInfo) {
         this.state = state;
         this.stateInfo = stateInfo;
     }
@@ -25,9 +29,11 @@ public enum RabbitMqEnum {
         return state;
     }
 
+
     public void setState(int state) {
         this.state = state;
     }
+
 
     public String getStateInfo() {
         return stateInfo;

@@ -1,18 +1,16 @@
 package com.wj.controller;
 
 import com.wj.entity.User;
-import com.wj.enums.RabbitMqEnum;
+import com.wj.enums.RegisterEnum;
 import com.wj.exception.RabbitMqException;
 import com.wj.exception.ReceiveException;
 import com.wj.exception.SendException;
 import com.wj.service.UserService;
 import com.wj.utils.CodeUtil;
-import com.wj.utils.MailUtil;
 import com.wj.utils.Md5Util;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.View;
 
 import javax.annotation.Resource;
 import java.util.Date;
@@ -39,13 +37,13 @@ public class RegisterController {
         try {
             userService.registerUser(user);
         } catch (SendException e) {
-            System.out.println(RabbitMqEnum.SEND_FAIL);
+            throw new SendException(RegisterEnum.SEND_FAIL);
         } catch (ReceiveException e) {
-            System.out.println(RabbitMqEnum.REVIEWCEIVE_FAIL);
+            throw new ReceiveException(RegisterEnum.REVIEWCEIVE_FAIL);
         }catch (RabbitMqException e){
-            System.out.println(RabbitMqEnum.MQ_ERROR);
+            throw new ReceiveException(RegisterEnum.MQ_ERROR);
         } catch (Exception e) {
-            System.out.println(RabbitMqEnum.MQ_ERROR);
+            throw new ReceiveException(RegisterEnum.MQ_ERROR);
         }
         return "registerSuccess";
     }
