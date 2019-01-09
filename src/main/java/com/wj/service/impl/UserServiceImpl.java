@@ -31,7 +31,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void registerUser(User user) {
-
         int i = userMapper.insertSelective(user);
         if (i > 0) {
             String mailMessage=new String(user.getUMail() +","+ user.getUCode());

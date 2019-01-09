@@ -22,6 +22,8 @@ public class User implements Serializable {
 
     private String uCode;
 
+    private String uCity;
+
     private static final long serialVersionUID = 1L;
 
 }

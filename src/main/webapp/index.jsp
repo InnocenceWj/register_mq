@@ -69,6 +69,7 @@
     <input type="text" placeholder="请输入邮箱" name="uMail" id="uMail"><label id="uMail-label"
                                                                           class="errorInfo"
                                                                           style="display: none"></label><br/>
+    <input type="text" placeholder="请输入地址" name="uCity" id="uCity"><br/>
     <input type="submit" value="注册"/>
 </form>
 </body>

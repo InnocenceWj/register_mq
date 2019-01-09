@@ -10,9 +10,10 @@
     <result column="u_phone" jdbcType="VARCHAR" property="uPhone" />
     <result column="u_state" jdbcType="BIT" property="uState" />
     <result column="u_code" jdbcType="VARCHAR" property="uCode" />
+    <result column="u_city" jdbcType="VARCHAR" property="uCity" />
   </resultMap>
   <sql id="Base_Column_List">
-    u_id, u_name, u_pwd, u_create_time, u_mail, u_phone, u_state, u_code
+    u_id, u_name, u_pwd, u_create_time, u_mail, u_phone, u_state, u_code,u_city
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
@@ -49,10 +50,10 @@
   <insert id="insert" parameterType="com.wj.entity.User">
     insert into user (u_id, u_name, u_pwd, 
       u_create_time, u_mail, u_phone, 
-      u_state, u_code)
+      u_state, u_code,u_city)
     values (#{uId,jdbcType=BIGINT}, #{uName,jdbcType=VARCHAR}, #{uPwd,jdbcType=VARCHAR}, 
       #{uCreateTime,jdbcType=TIMESTAMP}, #{uMail,jdbcType=VARCHAR}, #{uPhone,jdbcType=VARCHAR}, 
-      #{uState,jdbcType=BIT}, #{uCode,jdbcType=VARCHAR})
+      #{uState,jdbcType=BIT}, #{uCode,jdbcType=VARCHAR},#{uCity})
   </insert>
   <insert id="insertSelective" parameterType="com.wj.entity.User">
     insert into user
@@ -81,6 +82,9 @@
       <if test="uCode != null">
         u_code,
       </if>
+      <if test="uCity != null">
+        u_city
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="uId != null">
@@ -106,6 +110,9 @@
       </if>
       <if test="uCode != null">
         #{uCode,jdbcType=VARCHAR},
+      </if>
+      <if test="uCity != null">
+        #{uCity,jdbcType=VARCHAR}
       </if>
     </trim>
   </insert>
@@ -133,6 +140,9 @@
       <if test="uCode != null">
         u_code = #{uCode,jdbcType=VARCHAR},
       </if>
+      <if test="uCity != null">
+        u_city = #{uCity,jdbcType=VARCHAR}
+      </if>
     </set>
     where u_id = #{uId,jdbcType=BIGINT}
   </update>
@@ -144,7 +154,8 @@
       u_mail = #{uMail,jdbcType=VARCHAR},
       u_phone = #{uPhone,jdbcType=VARCHAR},
       u_state = #{uState,jdbcType=BIT},
-      u_code = #{uCode,jdbcType=VARCHAR}
+      u_code = #{uCode,jdbcType=VARCHAR},
+      u_city = #{uCity,jdbcType=VARCHAR}
     where u_id = #{uId,jdbcType=BIGINT}
   </update>
 </mapper>
